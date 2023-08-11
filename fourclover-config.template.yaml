@@ -1,0 +1,25 @@
+version: v0.1.0
+global:
+  is_snapshot: true
+  is_compare: false
+  save_to_database: true
+  start_server: false
+  supress_logs: true
+snapshot:
+  directory: .\example\
+  hash_algorithms: [sha1,md5]
+  exclude_them: [.png]
+  focus_extensions: [.py]
+  export_report: .\reports\report1.json
+compare:
+  old_report: .\reports\example_report1.json
+  new_report: .\reports\example_report2.json
+  export_report: .\reports\comparison_report.txt
+database:
+  sqlite:
+    path: fourclover.sqlite
+server:
+  host: localhost
+  port: 8080
+logger:
+  path: logs\application.log

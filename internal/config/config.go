@@ -42,6 +42,15 @@ func GetFourCloverVersion() string {
 	return fourcloverVersion
 }
 
+// Get fourclover version
+func GetFourCloverVersionArg() bool {
+	fourcloverIsVersionArg := CheckCliArg("version")
+	if fourcloverIsVersionArg {
+		return true
+	}
+	return false
+}
+
 // Get fourclover help
 func GetFourCloverHelp() bool {
 	fourcloverIsHelpArg := CheckCliArg("help")
@@ -654,7 +663,6 @@ func GetFourCloverLoggerPath() string {
 	} else if fourcloverLoggerPathEnv != "" {
 		fourcloverLoggerPath = fourcloverLoggerPathEnv
 	} else {
-		log.Default().Println("INFO: No fourclover logger path specified in the config file or system environment variable. Using default path:", defaultLoggerPath)
 		fourcloverLoggerPath = defaultLoggerPath
 	}
 

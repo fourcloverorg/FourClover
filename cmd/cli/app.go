@@ -32,6 +32,8 @@ func Cmd(subCommand string) bool {
 		return compare(configDataInBytes)
 	case "policy":
 		return policy(configDataInBytes)
+	case "version":
+		return commands.Version()
 	case "help":
 		return commands.Help()
 	case "demo":

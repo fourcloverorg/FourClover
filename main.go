@@ -16,6 +16,8 @@ func main() {
 		subCommand = "compare"
 	} else if config.GetFourCloverIsPolicy() {
 		subCommand = "policy"
+	} else if config.GetFourCloverVersionArg() {
+		subCommand = "version"
 	} else if config.GetFourCloverHelp() {
 		subCommand = "help"
 	} else if config.GetFourCloverDemo() {

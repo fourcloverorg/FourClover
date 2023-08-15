@@ -57,7 +57,6 @@ func Snapshot(configData []byte) (bool, error) {
 		snapCommand.Var(&excludeThem, "exclude", "[Optional] Exclude files and directories from the snapshot (comma-separated)")
 		// eg: fourclover snapshot -dir . -focus .go,.py,.js,.html,.css,.json,.txt,.md,.yml,.gitkeep,.gitlab-ci.yml
 		snapCommand.Var(&focusExtensions, "focus", "[Optional] Focus on certain file extensions only (comma-separated eg. .py,.js) (All files will be added snapshot if not specified)")
-		snapCommand.BoolVar(&supressScanOutput, "supress", false, "[Optional] Supress the output of the program. (default: false)")
 		snapCommand.StringVar(&snapshotName, "name", "snapshot_"+timeNow, "[Optional] Name of the snapshot (default: snapshot_"+timeNow+")")
 		// Save snapshot report to file decision
 		snapCommand.BoolVar(&saveReportToFile, "save", true, "[Optional] Save snapshot report to file. (default: true)")
@@ -65,6 +64,7 @@ func Snapshot(configData []byte) (bool, error) {
 		snapCommand.StringVar(&reportFileExportPath, "out", "snapshot_report_"+timeNow+".json", "[Optional] Export report file to path. (default: snapshot_report_"+timeNow+".json)")
 		// Save snapshot report to database decision
 		snapCommand.BoolVar(&saveReportToDatabase, "db", false, "[Optional] Save snapshot report to database. (Note: Default SQLite path will be used) (default: false)")
+		snapCommand.BoolVar(&supressScanOutput, "supress", false, "[Optional] Supress the output of the program. (default: false)")
 
 		snapCommand.Parse(os.Args[2:])
 
